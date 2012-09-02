@@ -18,15 +18,15 @@ package com.seedotech.sdthrm.views;
 import com.seedotech.sdthrm.activities.SdtActivity;
 
 public abstract class SdtView {
-	protected boolean isProcessing = false;
-	protected SdtActivity activity = null;
+	protected boolean mIsProcessing = false;
+	protected SdtActivity mActivity = null;
 	
 	public SdtView(SdtActivity activity) {
-		this.activity = activity;
+		this.mActivity = activity;
 	}
 	
 	public SdtActivity getActivity() {
-		return this.activity;
+		return this.mActivity;
 	}
 	
 	// Create controls, set up connections
@@ -45,10 +45,10 @@ public abstract class SdtView {
 	}
 
 	public boolean isProcessing() {
-		return isProcessing;
+		return mIsProcessing;
 	}
 
 	public void setProcessing(boolean isProcessing) {
-		this.isProcessing = isProcessing;
+		this.mIsProcessing = isProcessing;
 	}
 }

@@ -23,14 +23,14 @@ import android.content.Intent;
 import android.os.Bundle;
 
 public abstract class SdtActivity extends Activity {
-	protected ProgressDialog indicatorDlg = null;
-	protected SdtView view = null;
+	protected ProgressDialog mIndicatorDlg = null;
+	protected SdtView mView = null;
 
 	public void setView(final SdtView view) {
-		this.view = view;
+		this.mView = view;
 	}
 	public SdtView getView() {
-		return this.view;
+		return this.mView;
 	}
 	
 	abstract boolean init();
@@ -40,16 +40,16 @@ public abstract class SdtActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		// Create the indicator dialog
-		indicatorDlg = new ProgressDialog(this);
-		indicatorDlg.setMessage("Loading. Please wait...");
-		indicatorDlg.setCancelable(false);  
+		mIndicatorDlg = new ProgressDialog(this);
+		mIndicatorDlg.setMessage("Loading. Please wait...");
+		mIndicatorDlg.setCancelable(false);  
 	}
 
 	public void showActivityIndicator(final boolean shown) {
 		if (shown == true)
-			indicatorDlg.show();
+			mIndicatorDlg.show();
 		else 
-			indicatorDlg.dismiss();
+			mIndicatorDlg.dismiss();
 	}
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {	

@@ -21,13 +21,12 @@ import android.widget.Toast;
 import com.seedotech.sdthrm.activities.MainActivity;
 import com.seedotech.sdthrm.activities.R;
 import com.seedotech.sdthrm.custom_items.StaffAdapter;
-import com.seedotech.sdthrm.custom_items.StaffItemView;
 import com.seedotech.sdthrm.models.Staff;
 import com.seedotech.sdthrm.models.StaffModel;
 
 public class MainView extends SdtView {
-	private ListView staffListView = null;
-	private StaffAdapter staffAdapter = null;
+	private ListView mStaffListView = null;
+	private StaffAdapter mStaffAdapter = null;
 	
 	public MainView(MainActivity activity) {
 		super(activity);
@@ -35,25 +34,27 @@ public class MainView extends SdtView {
 
 	@Override
 	public boolean initUI() {
-		MainActivity mainActivity = (MainActivity)this.activity;
-		this.staffListView = (ListView)mainActivity.findViewById(R.id.staff_list_view);
+		MainActivity mainActivity = (MainActivity)this.mActivity;
+		this.mStaffListView = (ListView)mainActivity.findViewById(R.id.staff_list_view);
 		
 		/* create an adapter */
-		this.staffAdapter = new StaffAdapter(this.activity);
+		this.mStaffAdapter = new StaffAdapter(this.mActivity);
     	// set the list's adapter
-		this.staffListView.setAdapter(this.staffAdapter);
+		this.mStaffListView.setAdapter(this.mStaffAdapter);
     	
 		StaffModel staffModel = new StaffModel();
+		String idCard = "";
 		for (int i = 0; i < 30; i++) {
-			Staff staff = new Staff(i, i, "Staff" + i, "Test", "Test");
+			idCard.format("%d", i);
+			Staff staff = new Staff(i, idCard, "Staff" + i, "Test", "Test");
 			staffModel.add(staff);
 		}
-		this.staffAdapter.setStaffModel(staffModel);
+		this.mStaffAdapter.setStaffModel(staffModel);
 		
-		this.staffAdapter.setCallback(new StaffAdapter.Callback() {			
+		this.mStaffAdapter.setCallback(new StaffAdapter.Callback() {			
 			@Override
 			public void onItemClicked(Staff staff) {
-				Toast.makeText(activity,
+				Toast.makeText(mActivity,
 						staff.getName(), Toast.LENGTH_LONG).show();
 			}
 		});

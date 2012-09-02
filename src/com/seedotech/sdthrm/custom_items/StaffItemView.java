@@ -27,26 +27,26 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class StaffItemView extends LinearLayout {
-	private ImageView avatarImageView = null;
-	private TextView nameTextView = null;
-	private Staff staff = null;
+	private ImageView mAvatarImageView = null;
+	private TextView mNameTextView = null;
+	private Staff mStaff = null;
 	
-	private Callback callback = null;
+	private Callback mCallback = null;
 	
 	public interface Callback {
 		public void onItemClicked(Staff staff);
 	}
 	
 	public void setCallback(Callback callback) {
-		this.callback = callback;
+		this.mCallback = callback;
 	}
 	
 	public Staff getStaff() {
-		return staff;
+		return mStaff;
 	}
 
 	public void setStaff(Staff staff) {
-		this.staff = staff;
+		this.mStaff = staff;
 	}
 
 	public StaffItemView(Context context, AttributeSet attrs) {
@@ -61,26 +61,27 @@ public class StaffItemView extends LinearLayout {
 	}
 
 	protected boolean initUI() {
-		LayoutInflater layoutInflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		//LayoutInflater layoutInflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		LayoutInflater layoutInflater = LayoutInflater.from(getContext());
 		layoutInflater.inflate(R.layout.staff_item_view, this);
 
 		// Initialize controls
-		this.avatarImageView = (ImageView) findViewById(R.id.avatar_image_view);
-		this.nameTextView = (TextView) findViewById(R.id.name_text_view);
+		this.mAvatarImageView = (ImageView) findViewById(R.id.avatar_image_view);
+		this.mNameTextView = (TextView) findViewById(R.id.name_text_view);
 		
-		this.avatarImageView.setOnClickListener(new OnClickListener() {			
+		this.mAvatarImageView.setOnClickListener(new OnClickListener() {			
 			@Override
 			public void onClick(View v) {
-				if (callback != null)
-					callback.onItemClicked(staff);
+				if (mCallback != null)
+					mCallback.onItemClicked(mStaff);
 			}
 		});
 		
-		this.nameTextView.setOnClickListener(new OnClickListener() {			
+		this.mNameTextView.setOnClickListener(new OnClickListener() {			
 			@Override
 			public void onClick(View v) {
-				if (callback != null)
-					callback.onItemClicked(staff);
+				if (mCallback != null)
+					mCallback.onItemClicked(mStaff);
 			}
 		});
 		
@@ -88,6 +89,6 @@ public class StaffItemView extends LinearLayout {
 	}
 
 	public void updateView() {
-		nameTextView.setText(staff.getName());
+		mNameTextView.setText(mStaff.getName());
 	}
 }

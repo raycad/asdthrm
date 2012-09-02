@@ -3,16 +3,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/top_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="@android:color/darker_gray" >
-    </LinearLayout>
+        android:layout_height="@dimen/top_bar_height"
+        android:background="@android:color/transparent" >
 
-    <ListView 
+        <ImageButton
+            android:id="@+id/main_menu_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/main_menu" />
+
+        <ImageButton
+            android:id="@+id/refresh_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@string/app_name"
+            android:background="@android:color/transparent"
+            android:src="@drawable/refresh" />
+    </RelativeLayout>
+
+    <View 
+        android:id="@+id/separate_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="#FFAADC"
+        android:layout_below="@id/top_bar_layout"/>
+    
+    <ListView
         android:id="@+id/staff_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/top_bar_layout"></ListView>
+        android:layout_below="@id/separate_line" >
+    </ListView>
+
 </RelativeLayout>

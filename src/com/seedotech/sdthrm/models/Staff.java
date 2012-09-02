@@ -16,52 +16,52 @@
 package com.seedotech.sdthrm.models;
 
 public class Staff {
-	private int id;
-	private int idCard;
-	private String name;
-	private String address;
-	private String avatar;
+	private int mId;
+	private String mIdCard;
+	private String mName;
+	private String mAddress;
+	private String mAvatarUrl;
 	
-	public Staff(int id, int idCard, String name, String address, String avatar) {
-		this.id = id;
-		this.idCard = idCard;
-		this.name = name;
-		this.address = address;
-		this.avatar = avatar;
+	public Staff(int id, final String idCard, final String name, final String address, final String avatarUrl) {
+		this.mId = id;
+		this.mIdCard = idCard;
+		this.mName = name;
+		this.mAddress = address;
+		this.mAvatarUrl = avatarUrl;
 	}
 	
 	public int getId() {
-		return id;
+		return mId;
 	}
 	public void setId(int id) {
-		this.id = id;
+		this.mId = id;
 	}
 	
-	public int getIdCard() {
-		return idCard;
+	public String getIdCard() {
+		return mIdCard;
 	}
-	public void setIdCard(int idCard) {
-		this.idCard = idCard;
+	public void setIdCard(final String idCard) {
+		this.mIdCard = idCard;
 	}
 	
 	public String getName() {
-		return name;
+		return mName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setName(final String name) {
+		this.mName = name;
 	}
 	
 	public String getAddress() {
-		return address;
+		return mAddress;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddress(final String address) {
+		this.mAddress = address;
 	}
 	
 	public String getAvatar() {
-		return avatar;
+		return mAvatarUrl;
 	}
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
+	public void setAvatar(final String avatar) {
+		this.mAvatarUrl = avatar;
 	}
 }

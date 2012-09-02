@@ -24,42 +24,42 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 public class StaffAdapter extends BaseAdapter {
-	private Activity activity = null;
-	private StaffModel staffModel = null;
+	private Activity mActivity = null;
+	private StaffModel mStaffModel = null;
 
-	private Callback callback = null;
+	private Callback mCallback = null;
 	
 	public interface Callback {
 		public void onItemClicked(Staff staff);
 	}
 	
 	public void setCallback(Callback callback) {
-		this.callback = callback;
+		this.mCallback = callback;
 	}
 	
 	public StaffAdapter(Activity activity) {
 		super();
-		this.activity = activity;
+		this.mActivity = activity;
 	}
 	
 	public StaffModel getStaffModel() {
-		return staffModel;
+		return mStaffModel;
 	}
 
 	public void setStaffModel(StaffModel staffModel) {
-		this.staffModel = staffModel;
+		this.mStaffModel = staffModel;
 	}
 
 	public int getCount() {
-		if (staffModel == null)
+		if (mStaffModel == null)
 			return 0;
-		return staffModel.count();
+		return mStaffModel.count();
     }
 
     public Object getItem(int position) {
-    	if (staffModel == null)
+    	if (mStaffModel == null)
 			return null;
-		return staffModel.get(position);
+		return mStaffModel.get(position);
     }
 
     public long getItemId(int position) {
@@ -68,15 +68,15 @@ public class StaffAdapter extends BaseAdapter {
     
     public View getView(int position, View convertView, ViewGroup parent) {
     	StaffItemView view = (StaffItemView) convertView;
-        Staff staff = staffModel.get(position);
+        Staff staff = mStaffModel.get(position);
         
         if(convertView == null) {
-            view = new StaffItemView(this.activity, null);
+            view = new StaffItemView(this.mActivity, null);
             view.setCallback(new StaffItemView.Callback() {				
 				@Override
 				public void onItemClicked(Staff staff) {
-					if (callback != null)
-						callback.onItemClicked(staff);
+					if (mCallback != null)
+						mCallback.onItemClicked(staff);
 				}
 			});
         }
