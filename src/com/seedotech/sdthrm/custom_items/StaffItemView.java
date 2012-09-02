@@ -29,6 +29,7 @@ import android.widget.TextView;
 public class StaffItemView extends LinearLayout {
 	private ImageView mAvatarImageView = null;
 	private TextView mNameTextView = null;
+	private TextView mAddressTextView = null;
 	private Staff mStaff = null;
 	
 	private Callback mCallback = null;
@@ -68,6 +69,7 @@ public class StaffItemView extends LinearLayout {
 		// Initialize controls
 		this.mAvatarImageView = (ImageView) findViewById(R.id.avatar_image_view);
 		this.mNameTextView = (TextView) findViewById(R.id.name_text_view);
+		this.mAddressTextView = (TextView) findViewById(R.id.address_text_view);
 		
 		this.mAvatarImageView.setOnClickListener(new OnClickListener() {			
 			@Override
@@ -90,5 +92,6 @@ public class StaffItemView extends LinearLayout {
 
 	public void updateView() {
 		mNameTextView.setText(mStaff.getName());
+		mAddressTextView.setText(mStaff.getAddress());
 	}
 }

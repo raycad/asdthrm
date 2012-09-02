@@ -52,19 +52,6 @@ public class MainActivity extends SdtActivity {
 		// Set login status
 		view.updateView();
 
-		String request = String.format(Common.GET_ALL_STAFF_URL);
-		//String res = RestUtils.loadData(request);
-		RestClient client = new RestClient(request);
-		client.addParam("get_all_staff", "");
-		client.addParam("format", "json");
-		try {
-			client.execute(RestClient.RequestMethod.GET);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		String res = client.getResponse();
-		
-		res = "";
 		return true;
 	}
 }

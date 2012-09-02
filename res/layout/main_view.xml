@@ -1,50 +1,55 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/white" >
 
     <RelativeLayout
         android:id="@+id/top_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/top_bar_height"
-        android:background="@android:color/transparent" >
+        android:layout_marginTop="@dimen/top_bar_margin_top"
+        android:background="@color/white" >
+
+        <!-- android:background="@android:color/transparent" -->
 
         <ImageButton
             android:id="@+id/main_menu_button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
-            android:scaleType="fitCenter"
             android:background="@android:color/transparent"
             android:contentDescription="@string/app_name"
+            android:scaleType="fitCenter"
             android:src="@drawable/main_menu" />
 
         <ImageButton
             android:id="@+id/refresh_button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:scaleType="fitCenter"
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
-            android:contentDescription="@string/app_name"
             android:background="@android:color/transparent"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitCenter"
             android:src="@drawable/refresh" />
     </RelativeLayout>
 
-    <View 
+    <View
         android:id="@+id/separate_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="2dp"
+        android:layout_below="@id/top_bar_layout"
         android:layout_marginBottom="2dp"
-        android:background="#FFAADC"
-        android:layout_below="@id/top_bar_layout"/>
-    
+        android:layout_marginTop="2dp"
+        android:background="#FFAADC" />
+
     <ListView
         android:id="@+id/staff_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/separate_line" >
+        android:layout_below="@id/separate_line"
+        android:background="@color/white" >
     </ListView>
 
 </RelativeLayout>

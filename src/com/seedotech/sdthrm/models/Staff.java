@@ -22,6 +22,14 @@ public class Staff {
 	private String mAddress;
 	private String mAvatarUrl;
 	
+	public Staff() {
+		mId = -1;
+		mIdCard = "";
+		mName = "";
+		mAddress = "";
+		mAvatarUrl = "";
+	}
+	
 	public Staff(int id, final String idCard, final String name, final String address, final String avatarUrl) {
 		this.mId = id;
 		this.mIdCard = idCard;

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="top_bar_height">30dp</dimen>
+    <dimen name="staff_item_left_margin">10dp</dimen>
+    <dimen name="top_bar_margin_top">5dp</dimen>
+</resources>
